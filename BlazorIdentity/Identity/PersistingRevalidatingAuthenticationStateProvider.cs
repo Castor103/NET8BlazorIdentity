@@ -32,6 +32,25 @@ namespace BlazorIdentity.Identity
 			_state = state;
 			_options = options.Value;
 
+			// Password settings
+			_options.Password.RequireDigit = true;
+			_options.Password.RequiredLength = 8;
+			_options.Password.RequireNonAlphanumeric = false;
+			_options.Password.RequireUppercase = true;
+			_options.Password.RequireLowercase = false;
+			
+			// Lockout settings
+			_options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+			_options.Lockout.MaxFailedAccessAttempts = 10;
+			
+			// // Cookie settings
+			// _options.Cookies.ApplicationCookie.ExpireTimeSpan = TimeSpan.FromDays(150);
+			// _options.Cookies.ApplicationCookie.LoginPath = "/Account/LogIn";
+			// _options.Cookies.ApplicationCookie.LogoutPath = "/Account/LogOff";
+			
+			// // User settings
+			// //_options.User.RequireUniqueEmail = true;
+
 			AuthenticationStateChanged += OnAuthenticationStateChanged;
 			_subscription = state.RegisterOnPersisting(OnPersistingAsync, RenderMode.InteractiveWebAssembly);
 		}

@@ -5,3 +5,25 @@
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+
+
+@* <p role="status">Current count: @currentCount</p> *@
+
+@* <button class="btn btn-primary" @onclick="IncrementCount">Click me1</button> *@
+
+@code {
+    //private int currentCount = 0;
+
+    @* private async void IncrementCount()
+    {
+        Console.WriteLine($"Current count: {currentCount}");
+        currentCount++;
+
+        await InvokeAsync(StateHasChanged);
+    } *@
+@* 
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+    } *@
+}
